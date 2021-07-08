@@ -49,6 +49,11 @@ function Details() {
           <View style={styles.rating}>
               <Text>Rate: ★★★★★</Text>
           </View>
+        <Text size="large">Comments</Text>
+          <View style={styles.comment}>
+            <Text size="medium">User</Text>
+          <Text size="medium">Very good movie to watch with family</Text>
+        </View>
           {Boolean(data.homepage) && (
             <Button
               onPress={() => Linking.openURL(data.homepage)}
@@ -62,11 +67,6 @@ function Details() {
               {data.overview}
             </Text>
           )}
-        <Text size="large">Comments</Text>
-          <View style={styles.comment}>
-            <Text size="medium">User</Text>
-          <Text size="medium">Very good movie to watch with family</Text>
-        </View>
           <Recommended />
         </ScrollView>
       </View>

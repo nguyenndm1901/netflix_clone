@@ -3,6 +3,7 @@ export const AppScreens = {
   home: 'home',
   search: 'search',
   account: 'account',
+  mylist: "mylist",
   upcoming: 'upcoming',
   detail: 'detail',
 };

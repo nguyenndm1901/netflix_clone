@@ -61,6 +61,7 @@ function Banner() {
           style={styles.actions}
           colors={[styleVars.gradientLightColor, styleVars.gradientDarkColor]}
         >
+          <IconButton icon="plus" label="My List" />
           <Button
             icon="play"
             style={styles.mainAction}

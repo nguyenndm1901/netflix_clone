@@ -11,6 +11,7 @@ import DetailScreen from 'screens/detail';
 import HomeScreen from 'screens/home';
 import SearchScreen from 'screens/search';
 import styles from 'utils/styles';
+import MyList from './screens/mylist/MyList';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -63,6 +64,16 @@ function TabsContainer() {
           tabBarLabel: 'Account',
           tabBarIcon: ({ color }) => (
             <Feather name="user" color={color} size={styles.tabBarIconSize} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name={AppScreens.mylist}
+        component={MyList}
+        options={{
+          tabBarLabel: 'My List',
+          tabBarIcon: ({ color }) => (
+            <Feather name="align-justify" color={color} size={styles.tabBarIconSize} />
           ),
         }}
       />
