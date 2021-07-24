@@ -6,4 +6,5 @@ export const AppScreens = {
   mylist: "mylist",
   upcoming: 'upcoming',
   detail: 'detail',
+  signin: 'signin',
 };

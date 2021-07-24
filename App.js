@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { SafeAreaView, StatusBar } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -12,6 +12,10 @@ import HomeScreen from 'screens/home';
 import SearchScreen from 'screens/search';
 import styles from 'utils/styles';
 import MyList from './screens/mylist/MyList';
+import SignIn from './screens/signin/SignIn';
+import SignUp from './screens/signup/SignUp';
+import Email from './screens/forgotpassword/Email';
+import NewPassword from './screens/forgotpassword/NewPassword';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -26,9 +30,8 @@ const AppTheme = {
   },
 };
 
-function TabsContainer() {
-  return (
-    <Tab.Navigator
+TabsContainer = () => {
+    return <Tab.Navigator
       tabBarOptions={{
         activeTintColor: styles.defaultFontColor,
         tabStyle: { padding: 5 },
@@ -37,6 +40,7 @@ function TabsContainer() {
         },
       }}
     >
+
       <Tab.Screen
         name={AppScreens.home}
         component={HomeScreen}
@@ -58,16 +62,6 @@ function TabsContainer() {
         }}
       />
       <Tab.Screen
-        name={AppScreens.account}
-        component={AccountScreen}
-        options={{
-          tabBarLabel: 'Account',
-          tabBarIcon: ({ color }) => (
-            <Feather name="user" color={color} size={styles.tabBarIconSize} />
-          ),
-        }}
-      />
-      <Tab.Screen
         name={AppScreens.mylist}
         component={MyList}
         options={{
@@ -77,9 +71,18 @@ function TabsContainer() {
           ),
         }}
       />
+      <Tab.Screen
+        name={AppScreens.account}
+        component={AccountScreen}
+        options={{
+          tabBarLabel: 'Account',
+          tabBarIcon: ({ color }) => (
+            <Feather name="user" color={color} size={styles.tabBarIconSize} />
+          ),
+        }}
+      />
     </Tab.Navigator>
-  );
-}
+  }
 
 export default function App() {
   return (
@@ -88,11 +91,26 @@ export default function App() {
     >
       <StatusBar barStyle="light-content" />
       <NavigationContainer theme={AppTheme}>
-        <Stack.Navigator>
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
           <Stack.Screen
-            name={AppScreens.tabs}
-            component={TabsContainer}
-            options={{ headerShown: false }}
+            name='SignIn'
+            component={SignIn}
+          />
+          <Stack.Screen
+            name='SignUp'
+            component={SignUp}
+          />
+          <Stack.Screen
+            name='Email'
+            component={Email}
+          />
+          <Stack.Screen
+            name='NewPassword'
+            component={NewPassword}
+          />
+          <Stack.Screen
+            name='HomeScreen'
+            children={this.TabsContainer}
           />
           <Stack.Screen
             name={AppScreens.detail}
